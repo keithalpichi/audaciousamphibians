@@ -1,7 +1,6 @@
 import React from 'react'
 import Login from './login.js'
 import Signup from './signup.js'
-import { Route, Link } from 'react-router-dom'
 
 class NavBar extends React.Component {
   constructor(props) {

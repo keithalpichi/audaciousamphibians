@@ -10,9 +10,10 @@ module.exports = {
   watch: true,
   devtool: "source-map",
   devServer: {
-    contentBase: path.join(__dirname, "app/static"),
+    contentBase: path.join(__dirname, "build"),
     filename: "index.js",
     compress: true,
+    historyApiFallback: true,
     watchContentBase: true
   },
   module: {

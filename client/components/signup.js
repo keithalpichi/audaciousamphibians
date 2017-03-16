@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
 
 class Signup extends React.Component {
   constructor(props) {
@@ -9,7 +8,7 @@ class Signup extends React.Component {
   render() {
     return(
       <div>
-        ENOCH
+        Sign up component
       </div>
     )
   }

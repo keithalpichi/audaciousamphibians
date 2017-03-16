@@ -1,5 +1,5 @@
 import React from 'react'
-import POI from './POI.js'
+import POI from './poi.js'
 import MapPage from './map.js'
 
 class TripPage extends React.Component {
@@ -11,7 +11,7 @@ class TripPage extends React.Component {
     return(
       <div>
         <POI />
-        <Map />
+        <MapPage />
       </div>
     )
   }

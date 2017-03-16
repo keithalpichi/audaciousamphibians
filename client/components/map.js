@@ -8,7 +8,7 @@ class MapPage extends React.Component {
   render() {
     return(
       <div id="map">
-        
+        Here is the MapPage component
       </div>
     )
   }
