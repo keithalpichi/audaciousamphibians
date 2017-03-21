@@ -35,7 +35,7 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id="app">
         <NavBar />
         <Route exact path="/" render={props => (<LandingPage {...props} setFilters={this.setFilters} setRoute={this.setRoute}/>)} />
         <Route path="/trip" render={props => (<TripPage {...props} food={this.state.food} attractions={this.state.attractions} start={this.state.start} end={this.state.end}/>)}/>
