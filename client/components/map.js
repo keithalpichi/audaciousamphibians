@@ -1,34 +1,29 @@
 import React from 'react'
+import DrivingGoogleMap from './googleMap'
+import googleAPIKey from '../../keys'
 
 class MapPage extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      directions: null
+    }
   }
 
   // https://developers.google.com/maps/documentation/javascript/examples/directions-simple
   componentDidMount() {
-    console.log(this.props);
-    const directionsService = new google.maps.DirectionsService;
-    const directionsDisplay = new google.maps.DirectionsRenderer;
-    const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 7,
-      center: {lat: 41.85, lng: -87.65}
-    });
-    directionsDisplay.setMap(map);
-    this.calculateAndDisplayRoute(directionsService, directionsDisplay, this.props.start, this.props.end);
-  }
-
-
-  calculateAndDisplayRoute(directionsService, directionsDisplay, start, end) {
+    const directionsService = new google.maps.DirectionsService
     directionsService.route({
-      origin: start,
-      destination: end,
-      travelMode: 'DRIVING'
-    }, function(response, status) {
-      if (status === 'OK') {
-        directionsDisplay.setDirections(response);
+      origin: this.props.start,
+      destination: this.props.end,
+      travelMode: google.maps.TravelMode.DRIVING,
+    }, (result, status) => {
+      if (status === google.maps.DirectionsStatus.OK) {
+        this.setState({
+          directions: result,
+        });
       } else {
-        window.alert('Directions request failed due to ' + status);
+        console.error(`error fetching directions ${result}`);
       }
     });
   }
@@ -36,6 +31,12 @@ class MapPage extends React.Component {
   render() {
     return(
       <div id="map">
+        <DrivingGoogleMap
+          containerElement={<div style={{height: `100%`}}/>}
+          mapElement={<div style={{height: `100%`}}/>}
+          directions={this.state.directions}
+          >
+          </DrivingGoogleMap>
       </div>
     )
   }
