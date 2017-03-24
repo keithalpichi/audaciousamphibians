@@ -54,11 +54,7 @@ class TripPage extends React.Component {
   render() {
     return(
       <div id="trip">
-        <POI
-          setRoute={this.props.setRoute}
-          start={this.props.start}
-          end={this.props.end}
-          food={this.props.food}
+        <POI food={this.props.food}
           attractions={this.props.attractions}
           foodMarker={this.state.food}
           attractionsMarker={this.state.attractions}
