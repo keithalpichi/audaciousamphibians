@@ -67,7 +67,6 @@ class MapPage extends React.Component {
       travelMode: google.maps.TravelMode.DRIVING,
     }, (result, status) => {
       if (status === google.maps.DirectionsStatus.OK) {
-        //this.findAllPlacesAlongRoute(result)
         this.setState({
           directions: result
         }, this.findAllPlacesAlongRoute)
