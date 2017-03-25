@@ -58,9 +58,10 @@ class TripPage extends React.Component {
           attractions={this.props.attractions}
           foodMarker={this.state.food}
           attractionsMarker={this.state.attractions}
+          selectedPOI={this.state.selectedPOI}
           setSelectedPOI={this.setSelectedPOI}
-          setFilters={this.props.setFilters} 
-          setRoute={this.props.setRoute} 
+          setFilters={this.props.setFilters}
+          setRoute={this.props.setRoute}
           start={this.props.start}
           end={this.props.end}
           history={this.props.history}
@@ -73,6 +74,7 @@ class TripPage extends React.Component {
           setFood={this.setFood}
           setAttractions={this.setAttractions}
           setSelectedPOI={this.setSelectedPOI}
+          selectedPOI={this.state.selectedPOI}
         />
       </div>
     )
