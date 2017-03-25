@@ -187,6 +187,7 @@ class MapPage extends React.Component {
           mapElement={<div style={{height: `100%`}}/>}
           directions={this.state.directions}
           markers={this.allMarkers()}
+          {...this.props}
           >
           </DrivingGoogleMap>
       </div>
