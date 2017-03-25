@@ -7,7 +7,7 @@ const DrivingGoogleMap = props => (
     {props.markers && props.markers.map(marker => (
       <Marker
         {...marker}
-        onClick={() => console.log(marker.place.placeId)}
+        onClick={() => props.setSelectedPOI(marker.place.placeId)}
         key={marker.place.placeId}
       />
     ))
