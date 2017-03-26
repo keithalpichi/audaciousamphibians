@@ -34,18 +34,22 @@ class TripPage extends React.Component {
   }
 
   setFood (food) {
-    this.setState({
-      food: food
-    })
+    if (this.props.filterFood) {
+      this.setState({
+        food: food
+      })
+    }
   }
 
   setAttractions (attractions) {
-    this.setState({
-      attractions: [
-        ...this.state.attractions,
-        ...attractions
-      ]
-    })
+    if (this.props.filterAttractions) {
+      this.setState({
+        attractions: [
+          ...this.state.attractions,
+          ...attractions
+        ]
+      })
+    }
   }
 
   setSelectedPOI (selected) {
