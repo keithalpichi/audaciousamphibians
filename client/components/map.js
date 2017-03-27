@@ -13,7 +13,7 @@ class MapPage extends React.Component {
     this.setFoodMarkers = this.setFoodMarkers.bind(this)
     this.setAttractionsMarkers = this.setAttractionsMarkers.bind(this)
     this.findAllPlacesAlongRoute = this.findAllPlacesAlongRoute.bind(this)
-    this.fetchFoodPlaces - this.fetchFoodPlaces.bind(this)
+    this.fetchFoodPlaces = this.fetchFoodPlaces.bind(this)
     this.fetchAttractionPlaces = this.fetchAttractionPlaces.bind(this)
   }
 
@@ -99,6 +99,7 @@ class MapPage extends React.Component {
   // Docs - https://developers.google.com/maps/documentation/javascript/directions#DirectionsResults
   findAllPlacesAlongRoute() {
     let memo = {}
+    let directions = []
     this.state.directions.routes.forEach(route => {
       route.legs.forEach(leg => {
         leg.steps.forEach(step => {
@@ -106,11 +107,13 @@ class MapPage extends React.Component {
           let lng = (step.start_location.lng() + step.end_location.lng()) / 2
           let midpoint = {lat: lat, lng: lng}
           let radius = this.calcRadius(step.start_location.lat(), step.start_location.lng(), step.end_location.lat(), step.end_location.lng()) * 1000
+          directions.push(step.instructions)
           this.fetchFoodPlaces(midpoint, radius, memo)
           this.fetchAttractionPlaces(midpoint, radius, memo)
         })
       })
     })
+    this.props.setDirections(directions)
   }
 
   fetchFoodPlaces(midpoint, radius, memo) {
