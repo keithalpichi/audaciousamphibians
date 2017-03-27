@@ -16,6 +16,8 @@ class POI extends React.Component {
     this.setTab = this.setTab.bind(this);
     this.addPOI = this.addPOI.bind(this);
     this.deletePOI = this.deletePOI.bind(this);
+    this.renderSelectedPOI = this.renderSelectedPOI.bind(this)
+    this.findPOI = this.findPOI.bind(this)
   }
 
   componentWillReceiveProps(props) {
@@ -45,6 +47,30 @@ class POI extends React.Component {
       ...this.state.selectedPOIs.slice(index + 1)
       ]
     })
+  }
+
+  findPOI(element) {
+    return element.place_id === this.props.selectedPOI
+  }
+
+  renderSelectedPOI() {
+    if (this.props.selectedPOI) {
+      let poi
+      if ((this.state.foodFilter && this.state.attractionFilter) || (!this.state.foodFilter && !this.state.attractionFilter)) {
+        poi = this.state.foodPlaces.concat(this.state.attractionPlaces).find(this.findPOI)
+      } else if (this.state.foodFilter && !this.state.attractionFilter) {
+        poi = this.state.foodPlaces.find(this.findPOI)
+      } else if (!this.state.foodFilter && this.state.attractionFilter) {
+        poi = this.state.attractionPlaces.find(this.findPOI)
+      }
+      return (
+        <div className='poiEntries'>
+        <div className='icon'><img src={poi.icon}/></div>
+        <div className='title'> {poi.name} </div>
+        <div className='clear'></div>
+        </div>
+      )
+    }
   }
 
   renderPOIEntry() {
@@ -108,6 +134,7 @@ class POI extends React.Component {
         <div>
         </div>
         <div className="clear">
+          {this.renderSelectedPOI()}
           {this.renderPOIEntry()}
         </div>
       </div>
