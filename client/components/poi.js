@@ -58,42 +58,56 @@ class POI extends React.Component {
     }
     if (this.state.selectedTab === 0) {
       return POIs.map((entry) => {
-        return (<POIEntry {...entry} 
-                  key={entry.place_id} 
+        return (<POIEntry {...entry}
+                  key={entry.place_id}
                   setSelectedPOI={this.props.setSelectedPOI}
                   selectedTab={this.state.selectedTab}
                   addPOI={this.addPOI}
                 />)
       })
-    } else {
+    } else if (this.state.selectedTab === 1) {
       return this.state.selectedPOIs.map((entry) => {
-        return (<POIEntry {...entry} 
-                  key={entry.place_id} 
+        return (<POIEntry {...entry}
+                  key={entry.place_id}
                   setSelectedPOI={this.props.setSelectedPOI}
                   selectedTab={this.state.selectedTab}
                   deletePOI={this.deletePOI}
                 />)
       })
+    } else {
+      if (!this.props.directions) return null
+      return (
+        <ul>
+          {this.props.directions.map((step, i) => {
+            return <li className="directions" key={i} dangerouslySetInnerHTML={{__html: step}}></li>
+          })
+          }
+        </ul>
+      )
     }
   }
 
   render() {
     return(
       <div id="poi">
-        <Search 
-          setFilters={this.props.setFilters} 
-          setRoute={this.props.setRoute} 
-          history={this.props.history} 
-          food={this.props.food} 
+        <Search
+          setFilters={this.props.setFilters}
+          setRoute={this.props.setRoute}
+          history={this.props.history}
+          food={this.props.food}
           attractions={this.props.attractions}
           start={this.props.start}
           end={this.props.end}
         />
-        <div>
-          <div onClick={this.setTab.bind(null, 1)}>My Places</div>
-          <div onClick={this.setTab.bind(null, 0)}>Places</div>
+        <div id="tabs">
+          <div className="tab myButton" onClick={this.setTab.bind(null, 0)}>Places</div>
+          <div className="tab myButton" onClick={this.setTab.bind(null, 1)}>My Places</div>
+          <div className="tab myButton" onClick={this.setTab.bind(null, 2)}>Directions</div>
+          <div className="clear"></div>
         </div>
         <div>
+        </div>
+        <div className="clear">
           {this.renderPOIEntry()}
         </div>
       </div>
