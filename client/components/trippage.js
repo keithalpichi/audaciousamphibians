@@ -8,12 +8,14 @@ class TripPage extends React.Component {
     this.state = {
       food: [],
       attractions: [],
-      selectedPOI: null
+      selectedPOI: null,
+      directions: null
     }
 
     this.setFood = this.setFood.bind(this);
     this.setAttractions = this.setAttractions.bind(this);
     this.setSelectedPOI = this.setSelectedPOI.bind(this);
+    this.setDirections = this.setDirections.bind(this)
   }
 
   componentDidUpdate(prevProps) {
@@ -25,7 +27,8 @@ class TripPage extends React.Component {
       this.setState({
         food: [],
         attractions: [],
-        selectedPOI: null
+        selectedPOI: null,
+        directions: null
       })
     }
   }
@@ -51,6 +54,12 @@ class TripPage extends React.Component {
     })
   }
 
+  setDirections(directions) {
+    this.setState({
+      directions: directions
+    })
+  }
+
   render() {
     return(
       <div id="trip">
@@ -65,6 +74,7 @@ class TripPage extends React.Component {
           start={this.props.start}
           end={this.props.end}
           history={this.props.history}
+          directions={this.state.directions}
         />
         <MapPage
           start={this.props.start}
@@ -75,6 +85,7 @@ class TripPage extends React.Component {
           setAttractions={this.setAttractions}
           setSelectedPOI={this.setSelectedPOI}
           selectedPOI={this.state.selectedPOI}
+          setDirections={this.setDirections}
         />
       </div>
     )
