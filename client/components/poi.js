@@ -53,8 +53,9 @@ class POI extends React.Component {
     return element.place_id === this.props.selectedPOI
   }
 
+
   renderSelectedPOI() {
-    if (this.props.selectedPOI) {
+    if (this.props.selectedPOI && this.state.selectedTab === 0) {
       let poi
       if ((this.state.foodFilter && this.state.attractionFilter) || (!this.state.foodFilter && !this.state.attractionFilter)) {
         poi = this.state.foodPlaces.concat(this.state.attractionPlaces).find(this.findPOI)
@@ -64,10 +65,13 @@ class POI extends React.Component {
         poi = this.state.attractionPlaces.find(this.findPOI)
       }
       return (
-        <div className='poiEntries'>
+        <div id='poiCurrent'>
         <div className='icon'><img src={poi.icon}/></div>
         <div className='title'> {poi.name} </div>
         <div className='clear'></div>
+        { !this.state.selectedPOIs.find(this.findPOI) ?
+          <div><button className="poiButtons" onClick={this.addPOI.bind(null, poi)}>Add To Trip</button></div>
+          : <div><button className="poiButtons" onClick={this.deletePOI.bind(null, poi)}>Remove From Trip</button></div> }
         </div>
       )
     }

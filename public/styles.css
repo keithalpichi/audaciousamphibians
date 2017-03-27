@@ -129,6 +129,13 @@ div #landingpage {
   border-radius: 4px;
 }
 
+#poiCurrent {
+  margin: 26px 10px;
+  padding: 10px;
+  background-color: #808080;
+  border-radius: 4px;
+}
+
 .icon {
   float: left;
   margin-bottom: 16px;

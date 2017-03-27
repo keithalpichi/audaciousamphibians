@@ -3,6 +3,7 @@ import { GoogleMap, Marker, withGoogleMap, DirectionsRenderer } from 'react-goog
 
 const DrivingGoogleMap = props => (
   <GoogleMap
+    onClick={() => props.setSelectedPOI(null)}
   >
     {props.markers && props.markers.map(marker => (
       <Marker
