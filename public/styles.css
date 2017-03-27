@@ -6,6 +6,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-size: 16px;
 }
 
 h1 {
@@ -60,6 +61,25 @@ a {
   background-color: #fff;
 }
 
+.directions {
+  margin: 6px;
+  font-size: 1.25em;
+}
+
+#tabs {
+  margin: 10px;
+}
+
+.tab {
+  float: left;
+  clear: right;
+  margin: 6px;
+}
+
+.clear {
+  clear: both;
+}
+
 div #landingpage {
   width: 600px;
   height: 150px;
@@ -102,7 +122,23 @@ div #landingpage {
   margin-right: 5px;
 }
 
+.poiEntries {
+  margin: 26px 10px;
+  padding: 10px;
+  background-color: #eaeaea;
+  border-radius: 4px;
+}
 
+.icon {
+  float: left;
+  margin-bottom: 16px;
+}
+
+.title {
+  float: right;
+  font-weight: bold;
+  margin: 10px 10px 0 0;
+}
 
 /*CHECKBOX STYLES*/
 #checktext {
@@ -173,4 +209,17 @@ div #landingpage {
 .myButton:active {
   position:relative;
   top:1px;
+}
+
+.poiButtons {
+  border-radius:12px;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Trebuchet MS;
+  font-size:18px;
+  font-weight:bold;
+  padding:4px 20px;
+  text-decoration:none;
+  background-color: #08bd47;
 }
