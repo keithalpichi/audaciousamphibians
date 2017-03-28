@@ -58,7 +58,8 @@ class POI extends React.Component {
     if (this.props.selectedPOI && this.state.selectedTab === 0) {
       let poi
       if ((this.state.foodFilter && this.state.attractionFilter) || (!this.state.foodFilter && !this.state.attractionFilter)) {
-        poi = this.state.foodPlaces.concat(this.state.attractionPlaces).find(this.findPOI)
+        let places = this.state.foodPlaces.concat(this.state.attractionPlaces)
+        poi = places.find(this.findPOI)
       } else if (this.state.foodFilter && !this.state.attractionFilter) {
         poi = this.state.foodPlaces.find(this.findPOI)
       } else if (!this.state.foodFilter && this.state.attractionFilter) {

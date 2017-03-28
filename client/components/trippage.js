@@ -35,7 +35,10 @@ class TripPage extends React.Component {
 
   setFood (food) {
       this.setState({
-        food: food
+        food: [
+        ...this.state.food,
+        ...food
+        ]
       })
   }
 
