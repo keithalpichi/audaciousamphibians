@@ -41,6 +41,11 @@ From within the root directory:
 npm install
 ```
 
+## API Keys
+
+- insert your Google API key into `public/index.html`
+- insert your Google API key into `server/index.js` at the `/places` route
+
 ### Roadmap
 
 View the project roadmap [here](LINK_TO_DOC)

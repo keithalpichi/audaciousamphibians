@@ -247,7 +247,7 @@ app.route('/users/:user_id/trips/:trip_id/places')
 
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
-        key: 'AIzaSyDDIM1VDHvleJBp4Q5y9vFx8jd6wU8j4pE',
+        key: 'INSERT_API_KEY_HERE',
         location: coords,
         radius: radius,
         type: type
