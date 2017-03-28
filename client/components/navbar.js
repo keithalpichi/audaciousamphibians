@@ -12,9 +12,10 @@ class NavBar extends React.Component {
     return(
       <div id="navbar">
         <div>
-          <Link className="heading" to="/"><h1>RoadChip</h1></Link>
-          <Link className="signup" to="/signup">Sign Up</Link>
-          <Link className="login" to="/login">Login</Link>
+          <img id="logo" src="chipmunk.jpg" height="150" width="150"></img>
+          <Link className="nav-links" to="/"><h1>RoadChip</h1></Link>
+          <Link className="nav-links-right" to="/signup">Sign Up</Link>
+          <Link className="nav-links-right" to="/login">Login</Link>
         </div>
       </div>
     )

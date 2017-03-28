@@ -1,12 +1,12 @@
 /*http://www.color-hex.com/color-palette/34099*/
 
 body {
-  background: url(http://i.imgur.com/0iCOEgX.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: #F99B15;
   font-size: 16px;
+}
+
+#logo {
+  float: left;
 }
 
 h1 {
@@ -20,6 +20,15 @@ h1 {
 
 #navbar {
   height: 20vh;
+}
+
+.nav-links {
+  float: left;
+}
+
+.nav-links-right {
+  margin: 10px;
+  float: right;
 }
 
 #autho {
@@ -50,6 +59,8 @@ a {
   float: right;
   width: 70%;
   height: 100%;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 #poi {
@@ -59,6 +70,8 @@ a {
   height: 100%;
   overflow-y: scroll;
   background-color: #fff;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .directions {
