@@ -21,14 +21,21 @@
 
 ## Usage
 
-> Some usage instructions
+Open a new tab within the root directory to initialize webpack build:
+```
+npm run build
+```
+
+Open a new tab within the root directory to start server:
+```
+npm start
+```
 
 ## Requirements
 
 - Node 6.6.0
 - React 15.4.2
 - MySQL 2.13.0
-- Passport 0.3.2
 - Express 4.15.2
 
 ## Development
@@ -43,7 +50,7 @@ npm install
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_DOC)
+View the project roadmap [here](https://docs.google.com/spreadsheets/d/1BGQynudPiV8y0VZ-9YeovgAhDMZ6b2xZAhZVBixcWnU/edit#gid=0)
 
 
 ## Contributing
